@@ -1,0 +1,14 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Antigravity agent files
+.gemini/
+brain/
+scratch/
+task.md
+implementation_plan.md
+walkthrough.md
+
+# Log files
+*.log

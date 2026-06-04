@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharos Agent Credit Passport — Decentralized Trust Engine</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="glow-bg">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <header class="app-header">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i data-lucide="shield-check"></i>
+            </div>
+            <div class="logo-text">
+                <span class="brand-name">PHAROS</span>
+                <span class="product-name">Agent Credit Passport</span>
+            </div>
+        </div>
+        <div class="header-tag">
+            <span class="badge badge-success"><span class="badge-dot"></span> Campaign Skill</span>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Input & Search Section -->
+        <section class="search-section">
+            <div class="hero-text">
+                <h1>Portable Credibility for the <span>Agent Economy</span></h1>
+                <p>Reputation, solvency, and trust analytics for AI agents, DAOs, and RealFi counterparties on Pharos.</p>
+            </div>
+
+            <div class="lookup-box">
+                <div class="lookup-input-wrapper">
+                    <i data-lucide="search" class="input-search-icon"></i>
+                    <input type="text" id="agentInput" placeholder="Enter Agent address (0x...) or type: Generate passport for 0xAgent..." value="0xAgentAlpha">
+                    <button id="analyzeBtn" class="btn-primary">
+                        <span>Analyze Agent</span>
+                        <i data-lucide="sparkles"></i>
+                    </button>
+                </div>
+                
+                <!-- Demo Quick Links -->
+                <div class="quick-selectors">
+                    <span class="label">Quick Test Presets:</span>
+                    <button class="preset-btn active" data-address="0xAgentAlpha">
+                        <i data-lucide="bot"></i>
+                        <span>0xAgentAlpha (Verified)</span>
+                    </button>
+                    <button class="preset-btn" data-address="0xDAO_Oracle">
+                        <i data-lucide="landmark"></i>
+                        <span>0xDAO_Oracle (Mid-Risk)</span>
+                    </button>
+                    <button class="preset-btn" data-address="0xRogueBot">
+                        <i data-lucide="skull"></i>
+                        <span>0xRogueBot (High-Risk)</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulated Analysis Terminal (Initially Hidden / Visible on Scanning) -->
+        <section id="terminalSection" class="terminal-section hidden">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">PHAROS SIGNAL HARVESTER — V0.1.0</div>
+                <div class="terminal-status">
+                    <span class="spinner-small"></span> RUNNING
+                </div>
+            </div>
+            <div class="terminal-body" id="terminalLogs">
+                <!-- Log output will be typed here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Credit Passport Visual Dashboard -->
+        <section id="dashboardSection" class="dashboard-section hidden">
+            
+            <div class="dashboard-grid">
+                <!-- SCORE CARD -->
+                <div class="card score-card glassmorphic">
+                    <div class="card-glow"></div>
+                    <div class="score-container">
+                        <svg class="progress-ring" width="220" height="220">
+                            <circle class="progress-ring-bg" stroke="#18182b" stroke-width="12" fill="transparent" r="90" cx="110" cy="110" />
+                            <circle id="scoreDial" class="progress-ring-fill" stroke="url(#scoreGrad)" stroke-width="12" stroke-linecap="round" fill="transparent" r="90" cx="110" cy="110" stroke-dasharray="565.48" stroke-dashoffset="565.48" />
+                            <defs>
+                                <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#7928ca" />
+                                    <stop offset="50%" stop-color="#5c41ff" />
+                                    <stop offset="100%" stop-color="#00dfd8" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="score-text-overlay">
+                            <span class="score-val" id="passportScore">--</span>
+                            <span class="score-max">/1000</span>
+                            <span class="score-label">CREDIT SCORE</span>
+                        </div>
+                    </div>
+                    
+                    <div class="score-grade-badge">
+                        <span class="grade-label">TRUST GRADE</span>
+                        <span class="grade-value" id="passportGrade">--</span>
+                    </div>
+                </div>
+
+                <!-- QUICK METRICS -->
+                <div class="card metrics-card glassmorphic">
+                    <div class="card-glow"></div>
+                    <h3 class="card-title"><i data-lucide="activity"></i> Core Reliability Analytics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-icon blue"><i data-lucide="check-circle-2"></i></div>
+                            <div class="metric-info">
+                                <span class="m-val" id="passportReliability">--</span>
+                                <span class="m-label">Agent Reliability</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon purple"><i data-lucide="coins"></i></div>
+                            <div class="metric-info">
+                                <span class="m-val" id="passportExposure">--</span>
+                                <span class="m-label">Exposure Limit</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon orange" id="riskLevelIcon"><i data-lucide="alert-triangle"></i></div>
+                            <div class="metric-info">
+                                <span class="m-val" id="passportRisk">--</span>
+                                <span class="m-label">Risk Assessment</span>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon green"><i data-lucide="calendar"></i></div>
+                            <div class="metric-info">
+                                <span class="m-val" id="passportAge">--</span>
+                                <span class="m-label">On-chain Age</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECOMMENDATION BANNER -->
+            <div class="recommendation-banner glassmorphic" id="recommendationBanner">
+                <div class="rec-icon">
+                    <i data-lucide="info" id="recIcon"></i>
+                </div>
+                <div class="rec-text">
+                    <h4>Actionable Recommendation</h4>
+                    <p id="passportRecommendation">--</p>
+                </div>
+            </div>
+
+            <div class="dashboard-grid col-2">
+                <!-- STRENGTHS -->
+                <div class="card glassmorphic strength-card">
+                    <div class="card-glow"></div>
+                    <h3 class="card-title text-success"><i data-lucide="trending-up"></i> Key Strengths</h3>
+                    <ul class="evidence-list" id="strengthsList">
+                        <!-- populated dynamically -->
+                    </ul>
+                </div>
+
+                <!-- RISK FLAGS -->
+                <div class="card glassmorphic risk-card">
+                    <div class="card-glow"></div>
+                    <h3 class="card-title text-danger"><i data-lucide="trending-down"></i> Risk Observations</h3>
+                    <ul class="evidence-list" id="risksList">
+                        <!-- populated dynamically -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EVIDENCE HISTORY / DETAILED METRICS -->
+            <div class="card glassmorphic evidence-card">
+                <div class="card-glow"></div>
+                <div class="card-header-actions">
+                    <h3 class="card-title"><i data-lucide="list-todo"></i> Harvested Evidence Log</h3>
+                    <button class="btn-secondary btn-sm" id="exportJsonBtn">
+                        <i data-lucide="code"></i>
+                        <span>Copy JSON Schema</span>
+                    </button>
+                </div>
+                <div class="evidence-table-wrapper">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Signal Evaluated</th>
+                                <th>Category</th>
+                                <th>Observed Value</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="evidenceTableBody">
+                            <!-- populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- METADATA FOOTER -->
+            <div class="dashboard-meta-footer">
+                <div>Passport Receipt: <span id="passportReceipt">--</span></div>
+                <div>Last Analyzed: <span id="passportTimestamp">--</span></div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Skill Presentation Modal for Copying JSON Schema -->
+    <div id="jsonModal" class="modal hidden">
+        <div class="modal-content glassmorphic">
+            <div class="modal-header">
+                <h3><i data-lucide="terminal"></i> Portable Schema Output</h3>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+            </div>
+            <p class="modal-desc">This JSON output is generated by the Pharos Skill Engine. Other agents or contracts can ingest this payload to verify identity and score programmatically.</p>
+            <pre><code id="jsonCode"></code></pre>
+            <div class="modal-footer">
+                <button class="btn-primary" id="copySchemaBtn"><i data-lucide="copy"></i> Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <span id="toastMsg">Notification message</span>
+    </div>
+
+    <footer class="app-footer">
+        <p>© 2026 Pharos Network — Skill Builder Hackathon Submission</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
