@@ -1,0 +1,24 @@
+{
+  "name": "pharos-agent-credit-passport",
+  "version": "0.1.0",
+  "description": "Portable Credit & Reputation Skill for AI Agents on Pharos Network",
+  "main": "sdk/index.js",
+  "type": "module",
+  "scripts": {
+    "mcp": "node mcp/server.js",
+    "demo:verified": "node sdk/cli.js score demos/verified-agent.json",
+    "demo:warning": "node sdk/cli.js score demos/warning-agent.json",
+    "demo:rogue": "node sdk/cli.js score demos/rogue-agent.json",
+    "test": "node test/index.test.js"
+  },
+  "keywords": [
+    "pharos",
+    "ai-agent",
+    "credit-score",
+    "reputation",
+    "web3",
+    "mcp-server"
+  ],
+  "author": "Travisxvi",
+  "license": "MIT"
+}

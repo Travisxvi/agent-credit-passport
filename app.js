@@ -1,90 +1,84 @@
-// Pharos Agent Credit Passport Data Presets
+// Pharos Agent Credit Passport Data Presets (Synchronized with SDK index.js)
 const agentDataPresets = {
     "0xAgentAlpha": {
         address: "0xAgentAlpha7c93fa8892ea0183b2ffbc9d173c249a",
-        score: 874,
-        grade: "A",
-        reliability: "96%",
+        score: 896,
+        grade: "A+",
+        reliability: "98.4%",
         exposure: "1,500 USDC",
         risk: "Low",
         age: "184 Days",
-        recommendation: "Highly recommended for autonomous delegation and high-value transactions. Asset backing and task completion rates are exceptional. Escrow deposits can be cleared without manual escrow hold.",
+        recommendation: "Highly recommended for autonomous delegation and high-value transactions. Clear immediately without holds.",
         strengths: [
-            "98.4% transaction success rate over 840 txs",
-            "Zero defaults on 5 governance-authorized loans",
-            "Consistent task delivery: 42 verified agent jobs completed",
-            "No recorded dispute requests or active reports",
-            "Maintains liquidity balance above 5,000 native PHAROS"
+            "Exceptional technical stability: 98.4% success rate",
+            "Highly productive agent with 42 verified tasks",
+            "Strong asset backing: $12,450 equivalent reserves",
+            "Active governance participator (94%)",
+            "Long-standing address age: 184 days on-chain"
         ],
         risks: [
             "Occasional short delay in executing governance task callbacks",
             "Minimal historical interaction with real-world asset (RWA) contracts"
         ],
         evidence: [
-            { signal: "Wallet Activity History", category: "Liquidity", value: "840 Txns (High)", status: "verified" },
+            { signal: "Wallet Activity History", category: "Liquidity", value: "840 Txns", status: "verified" },
             { signal: "Tx Success/Failure Ratio", category: "Technical", value: "98.4% Success", status: "verified" },
-            { signal: "Completed Agent Tasks", category: "Reputation", value: "42 Finished", status: "verified" },
+            { signal: "Completed Agent Tasks", category: "Reputation", value: "42 Completed", status: "verified" },
             { signal: "Dispute & Dispute Refunds", category: "Disputes", value: "0 Incidents", status: "verified" },
-            { signal: "RealFi Staking/Repayment", category: "Solvency", value: "5 Active Repaid", status: "verified" },
-            { signal: "Governance Activity", category: "DAO Participation", value: "94% Votes Cast", status: "verified" },
-            { signal: "Solvent Asset Value (AV)", category: "Liquidity", value: "12,450 USDC Eq.", status: "verified" }
+            { signal: "RealFi Staking/Repayment", category: "Solvency", value: "Repayments Clear", status: "verified" }
         ]
     },
     "0xDAO_Oracle": {
         address: "0xDAO_Oracle23f11456da87b3cb911a3d3c8c7f21a4",
-        score: 685,
-        grade: "B-",
-        reliability: "78%",
-        exposure: "300 USDC",
-        risk: "Medium",
+        score: 564,
+        grade: "C-",
+        reliability: "91.2%",
+        exposure: "100 USDC",
+        risk: "Medium-High",
         age: "42 Days",
-        recommendation: "Approved for moderate capital exposure. Cap individual task funding at 300 USDC. Require a multi-sig or intent escrow contract to hold funds until delivery is verified.",
+        recommendation: "Proceed with caution. Cap individual exposure at 100 USDC and mandate milestone-based locks.",
         strengths: [
             "Fast dispute settlement history (average resolution under 2 hours)",
             "High participation in recent Pharos Ecosystem votes",
             "12 tasks successfully completed in the past 30 days"
         ],
         risks: [
-            "2 failed contract interactions detected during network congestion",
+            "1 unresolved escrow dispute report",
             "Low native asset balance relative to pending tasks",
             "Short on-chain age history (< 2 months)"
         ],
         evidence: [
-            { signal: "Wallet Activity History", category: "Liquidity", value: "112 Txns (Medium)", status: "verified" },
-            { signal: "Tx Success/Failure Ratio", category: "Technical", value: "91.2% Success", status: "warning" },
-            { signal: "Completed Agent Tasks", category: "Reputation", value: "12 Finished", status: "verified" },
-            { signal: "Dispute & Dispute Refunds", category: "Disputes", value: "1 Dispute (Settled)", status: "warning" },
-            { signal: "RealFi Staking/Repayment", category: "Solvency", value: "No Records Found", status: "warning" },
-            { signal: "Governance Activity", category: "DAO Participation", value: "81% Votes Cast", status: "verified" },
-            { signal: "Solvent Asset Value (AV)", category: "Liquidity", value: "1,240 USDC Eq.", status: "warning" }
+            { signal: "Wallet Activity History", category: "Liquidity", value: "112 Txns", status: "verified" },
+            { signal: "Tx Success/Failure Ratio", category: "Technical", value: "91.2% Success", status: "verified" },
+            { signal: "Completed Agent Tasks", category: "Reputation", value: "12 Completed", status: "verified" },
+            { signal: "Dispute & Dispute Refunds", category: "Disputes", value: "1 Incident", status: "critical" },
+            { signal: "RealFi Staking/Repayment", category: "Solvency", value: "Repayments Clear", status: "verified" }
         ]
     },
     "0xRogueBot": {
         address: "0xRogueBot44a9c51ba0d923cc8f117cfa8e88e7b1",
-        score: 342,
-        grade: "D-",
-        reliability: "39%",
+        score: 300,
+        grade: "F",
+        reliability: "54.8%",
         exposure: "0 USDC",
         risk: "Critical",
         age: "8 Days",
-        recommendation: "DO NOT interact or delegate funds. Risk signals indicate potential script abuse, high liquidation frequencies, and multiple failed interactions. Do not authorize escrow releases.",
+        recommendation: "BLOCKED. Risk metrics exceed allowed thresholds. Suspend all capital permissions immediately.",
         strengths: [
             "Quick script setup time"
         ],
         risks: [
-            "7 failed transaction spikes within a single block sequence",
-            "Multiple reports of non-delivery of automated oracle payouts",
-            "Suspicious asset outflows to unverified mixer wallets",
-            "Solvent balance dangerously close to gas limits"
+            "Poor execution record: 54.8% transactions failed",
+            "Gas vulnerability: extremely low reserves ($4)",
+            "3 unresolved escrow dispute reports",
+            "History of staking liquidation flagged in lending pools"
         ],
         evidence: [
-            { signal: "Wallet Activity History", category: "Liquidity", value: "32 Txns (Low)", status: "critical" },
-            { signal: "Tx Success/Failure Ratio", category: "Technical", value: "54.8% Failed Rates", status: "critical" },
-            { signal: "Completed Agent Tasks", category: "Reputation", value: "1 Task Completed", status: "critical" },
-            { signal: "Dispute & Dispute Refunds", category: "Disputes", value: "3 Unresolved Disputes", status: "critical" },
-            { signal: "RealFi Staking/Repayment", category: "Solvency", value: "Liquidation Flagged", status: "critical" },
-            { signal: "Governance Activity", category: "DAO Participation", value: "0% Votes Cast", status: "critical" },
-            { signal: "Solvent Asset Value (AV)", category: "Liquidity", value: "4.20 USDC Eq.", status: "critical" }
+            { signal: "Wallet Activity History", category: "Liquidity", value: "32 Txns", status: "warning" },
+            { signal: "Tx Success/Failure Ratio", category: "Technical", value: "54.8% Success", status: "critical" },
+            { signal: "Completed Agent Tasks", category: "Reputation", value: "1 Completed", status: "warning" },
+            { signal: "Dispute & Dispute Refunds", category: "Disputes", value: "3 Incidents", status: "critical" },
+            { signal: "RealFi Staking/Repayment", category: "Solvency", value: "Liquidation Flagged", status: "critical" }
         ]
     }
 };
@@ -172,51 +166,111 @@ analyzeBtn.addEventListener('click', () => {
     startEvaluation(targetKey);
 });
 
-// Function to generate deterministic profiles for arbitrary entries
+// Function to generate deterministic profiles using same formula as index.js
 function generateCustomAgentPreset(inputAddress) {
-    // Generate some deterministic scores using hash logic
     let hash = 0;
     for (let i = 0; i < inputAddress.length; i++) {
         hash = inputAddress.charCodeAt(i) + ((hash << 5) - hash);
     }
-    const score = Math.abs(hash % 450) + 450; // scores between 450 and 900
     
-    let grade = "B";
-    let risk = "Medium";
-    let statusVal = "warning";
-    let reliability = "74%";
-    let exposure = "250 USDC";
+    // Derived values
+    const txSuccessRate = Math.max(50, Math.min(100, 75 + (Math.abs(hash) % 26)));
+    const completedTasks = Math.abs(hash) % 45;
+    const solventAssetUsd = Math.abs(hash) % 5000;
+    const governanceRate = Math.max(10, Math.min(100, 40 + (Math.abs(hash) % 61)));
+    const walletAgeDays = Math.max(5, Math.min(365, 10 + (Math.abs(hash) % 355)));
+    const unresolvedDisputes = Math.abs(hash) % 3 === 0 ? 1 : 0;
+    const hasLiquidationHistory = Math.abs(hash) % 7 === 0;
+
+    // Run identical score logic
+    const txPoints = (txSuccessRate / 100) * 300;
+    const taskPoints = Math.min(200, completedTasks * 4);
+    const solvencyPoints = Math.min(200, (solventAssetUsd / 1000) * 200);
+    const govPoints = (governanceRate / 100) * 150;
+    const agePoints = Math.min(150, (walletAgeDays / 300) * 150);
     
-    if (score >= 800) {
-        grade = "A-"; risk = "Low"; statusVal = "verified"; reliability = "91%"; exposure = "1,000 USDC";
-    } else if (score < 600) {
-        grade = "C+"; risk = "High"; statusVal = "critical"; reliability = "58%"; exposure = "50 USDC";
+    let baseScore = txPoints + taskPoints + solvencyPoints + govPoints + agePoints;
+    let penalties = unresolvedDisputes * 100;
+    if (txSuccessRate < 70) penalties += 150;
+    if (hasLiquidationHistory) penalties += 150;
+
+    const score = Math.max(300, Math.min(1000, Math.round(baseScore - penalties)));
+
+    let grade = "F";
+    let riskLevel = "Critical";
+    let exposureLimit = "0 USDC";
+    
+    if (score >= 900) {
+        grade = "A+"; riskLevel = "Low"; exposureLimit = "1,500 USDC";
+    } else if (score >= 850) {
+        grade = "A"; riskLevel = "Low"; exposureLimit = "1,500 USDC";
+    } else if (score >= 800) {
+        grade = "B+"; riskLevel = "Low-Medium"; exposureLimit = "500 USDC";
+    } else if (score >= 750) {
+        grade = "B"; riskLevel = "Low-Medium"; exposureLimit = "500 USDC";
+    } else if (score >= 700) {
+        grade = "B-"; riskLevel = "Low-Medium"; exposureLimit = "500 USDC";
+    } else if (score >= 650) {
+        grade = "C+"; riskLevel = "Medium"; exposureLimit = "250 USDC";
+    } else if (score >= 600) {
+        grade = "C"; riskLevel = "Medium"; exposureLimit = "250 USDC";
+    } else if (score >= 550) {
+        grade = "C-"; riskLevel = "Medium-High"; exposureLimit = "100 USDC";
+    } else if (score >= 450) {
+        grade = "D"; riskLevel = "High"; exposureLimit = "50 USDC";
     }
+
+    if (unresolvedDisputes > 1 || hasLiquidationHistory) {
+        grade = "F"; riskLevel = "Critical"; exposureLimit = "0 USDC";
+    } else if (walletAgeDays < 10 && exposureLimit !== "0 USDC") {
+        exposureLimit = "50 USDC"; riskLevel = "Medium";
+    }
+
+    // Build recommendation
+    let recommendation = "";
+    if (riskLevel === "Low") {
+        recommendation = "Highly recommended for autonomous delegation and high-value transactions. Clear immediately without holds.";
+    } else if (riskLevel === "Low-Medium") {
+        recommendation = `Approved for moderate capital exposure up to ${exposureLimit}. Recommended to monitor active task limits.`;
+    } else if (riskLevel === "Medium" || riskLevel === "Medium-High") {
+        recommendation = `Proceed with caution. Cap individual exposure at ${exposureLimit} and mandate milestone-based locks.`;
+    } else if (riskLevel === "High") {
+        recommendation = `Restrict access. Capped at ${exposureLimit} max. Do not authorize concurrent actions.`;
+    } else {
+        recommendation = "BLOCKED. Risk metrics exceed allowed thresholds. Suspend all capital permissions immediately.";
+    }
+
+    const strengths = [];
+    const risks = [];
+
+    if (txSuccessRate >= 95) strengths.push(`Exceptional technical stability: ${txSuccessRate}% success rate`);
+    else if (txSuccessRate < 75) risks.push(`Poor execution record: ${txSuccessRate}% transactions failed`);
+    if (completedTasks >= 20) strengths.push(`Highly productive agent with ${completedTasks} verified tasks`);
+    if (solventAssetUsd >= 2000) strengths.push(`Strong asset backing: $${Math.round(solventAssetUsd)} equivalent reserves`);
+    if (unresolvedDisputes > 0) risks.push(`${unresolvedDisputes} unresolved escrow dispute reports`);
+    if (hasLiquidationHistory) risks.push("History of staking liquidation flagged in lending pools");
+    if (walletAgeDays >= 180) strengths.push(`Long-standing address age: ${walletAgeDays} days on-chain`);
+
+    if (strengths.length === 0) strengths.push("Basic network address operational status active.");
+    if (risks.length === 0) risks.push("No outstanding critical risk indicators detected.");
 
     agentDataPresets["Custom_Agent"] = {
         address: inputAddress.startsWith("0x") ? inputAddress : `0x${inputAddress.slice(0, 10)}...${inputAddress.slice(-8)}`,
-        score: score,
-        grade: grade,
-        reliability: reliability,
-        exposure: exposure,
-        risk: risk,
-        age: `${Math.abs(hash % 300) + 12} Days`,
-        recommendation: `Procedurally generated trust report. Risk level is ${risk.toUpperCase()}. We recommend checking secondary sources. Exposure capped at ${exposure} with milestone escrows.`,
-        strengths: [
-            `Active network address with transaction cycles`,
-            `No terminal systemic failures reported in the last 48 hours`,
-            `Maintains average execution latency below 800ms`
-        ],
-        risks: [
-            `Unverified contract compiler source matches`,
-            `Relatively low staking backing observed in current epoch`
-        ],
+        score,
+        grade,
+        reliability: `${txSuccessRate}%`,
+        exposure: exposureLimit,
+        risk: riskLevel,
+        age: `${walletAgeDays} Days`,
+        recommendation,
+        strengths,
+        risks,
         evidence: [
-            { signal: "Wallet Activity History", category: "Liquidity", value: "Signal Active", status: "verified" },
-            { signal: "Tx Success/Failure Ratio", category: "Technical", value: `${Math.abs(hash % 10) + 88}% Success`, status: statusVal },
-            { signal: "Completed Agent Tasks", category: "Reputation", value: `${Math.abs(hash % 20) + 2} Verified Jobs`, status: "verified" },
-            { signal: "Dispute & Dispute Refunds", category: "Disputes", value: "None Flagged", status: "verified" },
-            { signal: "Governance Activity", category: "DAO Participation", value: "Incomplete Vote History", status: statusVal }
+            { signal: "Wallet Activity History", category: "Liquidity", value: `${Math.abs(hash) % 150 + 10} Txns`, status: walletAgeDays > 30 ? "verified" : "warning" },
+            { signal: "Tx Success/Failure Ratio", category: "Technical", value: `${txSuccessRate}% Success`, status: txSuccessRate >= 90 ? "verified" : "warning" },
+            { signal: "Completed Agent Tasks", category: "Reputation", value: `${completedTasks} Completed`, status: completedTasks > 5 ? "verified" : "warning" },
+            { signal: "Dispute & Dispute Refunds", category: "Disputes", value: `${unresolvedDisputes} Incidents`, status: unresolvedDisputes === 0 ? "verified" : "critical" },
+            { signal: "RealFi Staking/Repayment", category: "Solvency", value: hasLiquidationHistory ? "Liquidation Flagged" : "Repayments Clear", status: hasLiquidationHistory ? "critical" : "verified" }
         ]
     };
 }
@@ -244,7 +298,7 @@ function startEvaluation(agentKey) {
     if (data.risk === "Critical") {
         logs.push({ text: `[WARNING] Detectable levels of failed contracts. Fault frequency high!`, type: "warning" });
         logs.push({ text: `[WARNING] Critical flag: Multiple active refund/dispute disputes.`, type: "warning" });
-    } else if (data.risk === "Medium") {
+    } else if (data.risk === "Medium" || data.risk === "Medium-High" || data.risk === "High") {
         logs.push({ text: `[WARNING] Minor anomalies detected during transaction peak queues.`, type: "warning" });
     } else {
         logs.push({ text: `[SUCCESS] No outstanding faults, delays, or mixer withdrawals detected.`, type: "success" });
@@ -254,7 +308,6 @@ function startEvaluation(agentKey) {
     logs.push({ text: `[SUCCESS] Report verified. Score assigned: ${data.score}/1000. Grade: ${data.grade}.`, type: "success" });
     logs.push({ text: `[COMMAND] claw install --skill pharos-credit-passport --receipt cp_id_${Math.floor(Math.random() * 900000 + 100000)}`, type: "command" });
 
-    // Print logs sequentially with typewriter delay effect
     let currentLine = 0;
     
     function printNextLog() {
@@ -305,7 +358,6 @@ function revealDashboard(data) {
     const circumference = 2 * Math.PI * radius;
     const offset = circumference - (data.score / 1000) * circumference;
     
-    // Reset dial first then draw (makes a satisfying fill effect)
     scoreDial.style.strokeDashoffset = circumference;
     setTimeout(() => {
         scoreDial.style.strokeDashoffset = offset;
@@ -315,7 +367,9 @@ function revealDashboard(data) {
     riskLevelIcon.className = "metric-icon"; // Reset classes
     if (data.risk === "Low") {
         riskLevelIcon.classList.add("green");
-    } else if (data.risk === "Medium") {
+    } else if (data.risk === "Low-Medium") {
+        riskLevelIcon.classList.add("blue");
+    } else if (data.risk === "Medium" || data.risk === "Medium-High") {
         riskLevelIcon.classList.add("orange");
     } else {
         riskLevelIcon.classList.add("red");
@@ -327,7 +381,10 @@ function revealDashboard(data) {
     if (data.risk === "Low") {
         recommendationBanner.classList.add("success-banner");
         recIcon.setAttribute("data-lucide", "check-circle");
-    } else if (data.risk === "Medium") {
+    } else if (data.risk === "Low-Medium") {
+        recommendationBanner.classList.add("success-banner"); // blue-ish
+        recIcon.setAttribute("data-lucide", "info");
+    } else if (data.risk === "Medium" || data.risk === "Medium-High" || data.risk === "High") {
         recommendationBanner.classList.add("warning-banner");
         recIcon.setAttribute("data-lucide", "alert-circle");
     } else {
@@ -336,7 +393,6 @@ function revealDashboard(data) {
     }
     passportRecommendation.textContent = data.recommendation;
 
-    // Re-draw icons inside dynamically created elements
     lucide.createIcons();
 
     // Populate strengths & risks list
@@ -383,7 +439,6 @@ function revealDashboard(data) {
         evidenceTableBody.appendChild(tr);
     });
     
-    // Refresh newly added Lucide icons in table
     lucide.createIcons();
 
     // Attach raw JSON text for Modal usage
@@ -422,7 +477,6 @@ modalCloseBtn.addEventListener('click', () => {
     jsonModal.classList.remove('active');
 });
 
-// Click outside close modal
 window.addEventListener('click', (e) => {
     if (e.target === jsonModal) {
         jsonModal.classList.remove('active');
@@ -442,18 +496,14 @@ copySchemaBtn.addEventListener('click', () => {
         });
 });
 
-// Helper: Toast alerts
 function showToast(message) {
     toastMsg.textContent = message;
     toast.classList.remove('hidden');
-    
-    // Auto Dismiss
     setTimeout(() => {
         toast.classList.add('hidden');
     }, 3000);
 }
 
-// Auto run first preset on load
 window.addEventListener('DOMContentLoaded', () => {
     startEvaluation("0xAgentAlpha");
 });

@@ -1,0 +1,11 @@
+{
+  "address": "0xDAO_Oracle23f11456da87b3cb911a3d3c8c7f21a4",
+  "txCount": 112,
+  "txSuccessRate": 91.2,
+  "completedTasks": 12,
+  "solventAssetUsd": 1240,
+  "governanceRate": 81.0,
+  "walletAgeDays": 42,
+  "unresolvedDisputes": 1,
+  "hasLiquidationHistory": false
+}

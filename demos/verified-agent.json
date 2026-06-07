@@ -1,0 +1,11 @@
+{
+  "address": "0xAgentAlpha7c93fa8892ea0183b2ffbc9d173c249a",
+  "txCount": 840,
+  "txSuccessRate": 98.4,
+  "completedTasks": 42,
+  "solventAssetUsd": 12450,
+  "governanceRate": 94.0,
+  "walletAgeDays": 184,
+  "unresolvedDisputes": 0,
+  "hasLiquidationHistory": false
+}

@@ -1,0 +1,11 @@
+{
+  "address": "0xRogueBot44a9c51ba0d923cc8f117cfa8e88e7b1",
+  "txCount": 32,
+  "txSuccessRate": 54.8,
+  "completedTasks": 1,
+  "solventAssetUsd": 4.2,
+  "governanceRate": 0.0,
+  "walletAgeDays": 8,
+  "unresolvedDisputes": 3,
+  "hasLiquidationHistory": true
+}
