@@ -1,23 +1,32 @@
 {
   "name": "pharos-agent-credit-passport",
   "version": "0.1.0",
-  "description": "Portable Credit & Reputation Skill for AI Agents on Pharos Network",
-  "main": "sdk/index.js",
+  "description": "A Pharos Skill, SDK, and MCP server for agent reputation scoring and safety-gated exposure caps.",
   "type": "module",
+  "main": "sdk/index.js",
+  "exports": {
+    ".": "./sdk/index.js"
+  },
+  "bin": {
+    "pharos-passport-mcp": "./mcp/server.js"
+  },
   "scripts": {
+    "demo": "node demos/run-demo.js",
+    "demo:verified": "node demos/run-demo.js demos/verified-agent.json",
+    "demo:warning": "node demos/run-demo.js demos/warning-agent.json",
+    "demo:rogue": "node demos/run-demo.js demos/rogue-agent.json",
+    "demo:video": "node demos/video-demo.js",
     "mcp": "node mcp/server.js",
-    "demo:verified": "node sdk/cli.js score demos/verified-agent.json",
-    "demo:warning": "node sdk/cli.js score demos/warning-agent.json",
-    "demo:rogue": "node sdk/cli.js score demos/rogue-agent.json",
-    "test": "node test/index.test.js"
+    "test": "node test/sdk.test.js && node test/mcp-smoke.test.js"
   },
   "keywords": [
     "pharos",
-    "ai-agent",
-    "credit-score",
+    "agent-center",
+    "skill",
+    "mcp",
     "reputation",
-    "web3",
-    "mcp-server"
+    "credit-scoring",
+    "ai-agents"
   ],
   "author": "Travisxvi",
   "license": "MIT"

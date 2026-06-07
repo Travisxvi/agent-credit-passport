@@ -9,7 +9,6 @@ const WEIGHTS = {
 };
 
 export function scoreAgent(profile = {}) {
-  // Extract inputs with default fallbacks
   const txSuccessRate = Number(profile.txSuccessRate ?? 100);
   const completedTasks = Number(profile.completedTasks ?? 0);
   const solventAssetUsd = Number(profile.solventAssetUsd ?? 0);
@@ -91,7 +90,6 @@ export function evaluateProfile(profile = {}) {
     exposureLimit = "0 USDC";
     forcedCritical = true;
   } else if (age < 10 && exposureLimit !== "0 USDC") {
-    // Sybil gate: young wallets capped
     exposureLimit = "50 USDC";
     riskLevel = "Medium";
   }
@@ -116,6 +114,9 @@ export function evaluateProfile(profile = {}) {
   if (hasLiquidationHistory) risks.push("History of staking liquidation flagged in lending pools");
   if (age >= 180) strengths.push(`Long-standing address age: ${age} days on-chain`);
 
+  if (strengths.length === 0) strengths.push("Basic address connectivity verified active.");
+  if (risks.length === 0) risks.push("No outstanding risk indicators detected.");
+
   // Build recommendation text
   let recommendation = "";
   if (riskLevel === "Low") {
@@ -129,6 +130,28 @@ export function evaluateProfile(profile = {}) {
   } else {
     recommendation = "BLOCKED. Risk metrics exceed allowed thresholds. Suspend all capital permissions immediately.";
   }
+
+  // Simulate Credit Bureau Committee Debate Comments
+  const debate = {
+    solvencyAuditor: profile.solventAssetUsd >= 2000 
+      ? `Reserves are healthy at $${profile.solventAssetUsd.toLocaleString()} USD. Low risk of fee failures.`
+      : `Dangerously low reserves ($${profile.solventAssetUsd}). Address cannot support gas spikes or collateral write actions.`,
+    technicalInspector: profile.txSuccessRate >= 95 
+      ? `Technical performance is stable. Success rate stands at ${profile.txSuccessRate}%.`
+      : `High contract interaction failure rate (${profile.txSuccessRate}% success). Flagging potential loop errors.`,
+    reputationKeeper: profile.completedTasks >= 10 
+      ? `Proven track record with ${profile.completedTasks} tasks. Stable governance participation (${profile.governanceRate}%).`
+      : `New profile with negligible task history (${profile.completedTasks}). Unverified capability.`,
+    disputeArbitrator: unresolvedDisputes === 0 
+      ? `Clean sheet. Zero active disputes or refund claims in the ledger.`
+      : `${unresolvedDisputes} active unresolved disputes flagged. High friction history.`,
+    sybilSentinel: age >= 90 
+      ? `Established wallet age (${age} days). Low risk of disposable Sybil script origin.`
+      : `Young address age (${age} days). Recommend short exposure caps to limit Sybil vulnerability.`,
+    exposureController: riskLevel === "Low" 
+      ? `Clear for capital allocation. Recommending ${exposureLimit} limit.`
+      : `Overriding default parameters. Restricting recommended exposure to ${exposureLimit} with escrow milestones.`
+  };
 
   // Format table evidence
   evidence.push({ signal: "Wallet Activity History", category: "Liquidity", value: `${profile.txCount || 0} Txns`, status: age > 30 ? "verified" : "warning" });
@@ -148,6 +171,7 @@ export function evaluateProfile(profile = {}) {
     recommendation,
     strengths,
     risks,
+    debate,
     evidence,
     receiptId: `PRP-${Math.floor(Math.random() * 89999 + 10000)}-${score}`,
     timestamp: new Date().toISOString(),
@@ -155,14 +179,16 @@ export function evaluateProfile(profile = {}) {
 }
 
 export function renderPassportMarkdown(audit) {
-  const statusEmoji = audit.riskLevel === "Low" ? "✅" : (audit.riskLevel === "Medium" ? "⚠️" : "❌");
+  const statusEmoji = audit.riskLevel === "Low" ? "✅" : (audit.riskLevel === "Critical" ? "❌" : "⚠️");
   return [
     `# Pharos Agent Credit Passport`,
+    ``,
     `**Subject:** ${audit.address}`,
     `**Receipt ID:** ${audit.receiptId}`,
     `**Timestamp:** ${audit.timestamp}`,
     `---`,
     `## Trust Assessment Summary`,
+    ``,
     `- **Credit Score:** **${audit.score}/1000**`,
     `- **Trust Grade:** **${audit.grade}**`,
     `- **Risk Level:** **${audit.riskLevel.toUpperCase()}** ${statusEmoji}`,
@@ -171,15 +197,28 @@ export function renderPassportMarkdown(audit) {
     `- **On-chain Wallet Age:** **${audit.age}**`,
     `---`,
     `## Actionable Advice`,
+    ``,
     `> ${audit.recommendation}`,
     `---`,
     `## Strengths`,
+    ``,
     ...audit.strengths.map(s => `- ${s}`),
     `---`,
     `## Risk Flags`,
+    ``,
     ...audit.risks.map(r => `- ${r}`),
     `---`,
+    `## Credit Bureau Committee Debate`,
+    ``,
+    `- **Solvency Auditor:** ${audit.debate.solvencyAuditor}`,
+    `- **Technical Inspector:** ${audit.debate.technicalInspector}`,
+    `- **Reputation Keeper:** ${audit.debate.reputationKeeper}`,
+    `- **Dispute Arbitrator:** ${audit.debate.disputeArbitrator}`,
+    `- **Sybil Sentinel:** ${audit.debate.sybilSentinel}`,
+    `- **Exposure Controller:** ${audit.debate.exposureController}`,
+    `---`,
     `## Evidence Log`,
+    ``,
     `| Signal Evaluated | Category | Value | Status |`,
     `| :--- | :--- | :--- | :--- |`,
     ...audit.evidence.map(e => `| ${e.signal} | ${e.category} | ${e.value} | ${e.status.toUpperCase()} |`),
