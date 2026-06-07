@@ -58,7 +58,7 @@ export function evaluateProfile(profile = {}) {
   let riskLevel = "Critical";
   let exposureLimit = "0 USDC";
   
-  if (score >= 900) {
+  if (score >= 890) {
     grade = "A+"; riskLevel = "Low"; exposureLimit = "1,500 USDC";
   } else if (score >= 850) {
     grade = "A"; riskLevel = "Low"; exposureLimit = "1,500 USDC";
